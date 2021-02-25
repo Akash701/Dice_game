@@ -22,47 +22,38 @@ class _DiceState extends State<Dice> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.redAccent,
         appBar: AppBar(
-          backgroundColor: Colors.white,
           title: Center(
             child: Text(
-              "Dice",
+              'Dice',
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 30,
               ),
             ),
           ),
+          backgroundColor: Colors.white,
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        backgroundColor: Colors.redAccent,
+        body: Row(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("0"),
-                SizedBox(
-                  width: 100,
-                ),
-                Text("0"),
-              ],
+            Expanded(
+              child: FlatButton(
+                onPressed: () {},
+                child: Image.asset('Dice/dice1.png'),
+              ),
             ),
-            Row(
-              children: [
-                Expanded(
-                  child: FlatButton(
-                    onPressed: () {},
-                    child: Image.asset('Dice/dice1.png'),
-                  ),
-                ),
-                Expanded(
-                  child: FlatButton(
-                    onPressed: () {},
-                    child: Image.asset('Dice/dice1.png'),
-                  ),
-                ),
-              ],
+            VerticalDivider(
+              thickness: 15,
+              indent: 200,
+              endIndent: 200,
+              color: Colors.black,
+            ),
+            Expanded(
+              child: FlatButton(
+                onPressed: () {},
+                child: Image.asset('Dice/dice1.png'),
+              ),
             ),
           ],
         ),
