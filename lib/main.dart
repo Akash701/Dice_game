@@ -18,6 +18,34 @@ class _DiceState extends State<Dice> {
     rightdice = Random().nextInt(6) + 1;
   }
 
+  Widget winner() {
+    if (rightdice > leftdice) {
+      return Text(
+        "Right Dice Win",
+        style: TextStyle(
+          fontSize: 50,
+          color: Colors.white,
+        ),
+      );
+    } else if (rightdice == leftdice) {
+      return Text(
+        "IT'S A TIE !",
+        style: TextStyle(
+          fontSize: 50,
+          color: Colors.white,
+        ),
+      );
+    } else {
+      return Text(
+        "Left Dice Win",
+        style: TextStyle(
+          fontSize: 50,
+          color: Colors.white,
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -34,26 +62,40 @@ class _DiceState extends State<Dice> {
           ),
           backgroundColor: Colors.white,
         ),
-        backgroundColor: Colors.redAccent,
-        body: Row(
+        backgroundColor: Colors.red,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Expanded(
-              child: FlatButton(
-                onPressed: () {},
-                child: Image.asset('Dice/dice1.png'),
-              ),
-            ),
-            VerticalDivider(
-              thickness: 15,
-              indent: 200,
-              endIndent: 200,
-              color: Colors.black,
-            ),
-            Expanded(
-              child: FlatButton(
-                onPressed: () {},
-                child: Image.asset('Dice/dice1.png'),
-              ),
+            winner(),
+            Row(
+              children: [
+                Expanded(
+                  child: FlatButton(
+                    onPressed: () {
+                      setState(() {
+                        leftdice = Random().nextInt(6) + 1;
+                      });
+                    },
+                    child: Image.asset('Dice/dice$leftdice.png'),
+                  ),
+                ),
+                VerticalDivider(
+                  thickness: 15,
+                  indent: 250,
+                  endIndent: 250,
+                  color: Colors.black,
+                ),
+                Expanded(
+                  child: FlatButton(
+                    onPressed: () {
+                      setState(() {
+                        rightdice = Random().nextInt(6) + 1;
+                      });
+                    },
+                    child: Image.asset('Dice/dice$rightdice.png'),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
