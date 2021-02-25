@@ -11,6 +11,13 @@ class Dice extends StatefulWidget {
 }
 
 class _DiceState extends State<Dice> {
+  int leftdice = 1;
+  int rightdice = 1;
+  void dicechage() {
+    leftdice = Random().nextInt(6) + 1;
+    rightdice = Random().nextInt(6) + 1;
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
